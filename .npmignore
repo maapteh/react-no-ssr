@@ -1,0 +1,14 @@
+*.swp
+*~
+*.iml
+.*.haste_cache.*
+.DS_Store
+.idea
+.babelrc
+.eslintrc
+.prettierrc
+coverage
+jest.config.js
+jest.setup.js
+src
+yarn-error.log
