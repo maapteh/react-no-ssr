@@ -2,6 +2,7 @@
 > React component to wrap non SSR components
 
 When working with Server Side Rendering(SSR) enabled apps, you have to deal with client only components. This wrapper makes it simple to work with those components.
+[npmjs.com/package/@mpth/react-no-ssr](https://www.npmjs.com/package/@mpth/react-no-ssr)
 
 ### Installation
 
