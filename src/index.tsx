@@ -3,8 +3,8 @@ import React, { useState, useEffect } from 'react';
 const DefaultOnSSR = () => <span />;
 
 interface Props {
-    children: any; // React.ReactNode,
-    onSSR?: any; // JSX.Element,
+    children: any; // React.ReactNode
+    onSSR?: any; // JSX.Element
 }
 
 const NoSSR = ({ children, onSSR = <DefaultOnSSR /> }: Props) => {

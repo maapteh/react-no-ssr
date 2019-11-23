@@ -5,7 +5,7 @@
       "declaration": true,
       "outDir": "./dist",
       "strict": true,
-      "jsx": "preserve",
+      "jsx": "react",
       "esModuleInterop": true,
       "lib": [
           "es2015"
