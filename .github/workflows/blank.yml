@@ -15,8 +15,10 @@ jobs:
         node-version: '10'
 
     - name: Install Dependencies
+      run: yarn
+
+    - name: Test lint and build
       run: |
-        yarn
         yarn test
         yarn lint
         yarn build
