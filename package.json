@@ -1,6 +1,6 @@
 {
   "name": "@mpth/react-no-ssr",
-  "version": "0.0.5",
+  "version": "0.0.7",
   "description": "React component to wrap non SSR components.",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
