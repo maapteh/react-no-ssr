@@ -1,12 +1,12 @@
 {
   "name": "@mpth/react-no-ssr",
-  "version": "0.0.1",
+  "version": "0.0.3",
   "description": "React component to wrap non SSR components.",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "repository": {
     "type": "git",
-    "url": "https://github.com/mpth/react-no-ssr.git"
+    "url": "git+https://github.com/maapteh/react-no-ssr.git"
   },
   "license": "MIT",
   "scripts": {
@@ -21,7 +21,15 @@
     "version": "npm run format && git add -A src",
     "postversion": "git push && git push --tags"
   },
+  "dependencies": {
+  },
   "devDependencies": {
+    "@babel/core": "^7.7.4",
+    "@babel/plugin-syntax-dynamic-import": "^7.7.4",
+    "@babel/plugin-transform-runtime": "^7.7.4",
+    "@babel/preset-env": "^7.7.4",
+    "@babel/preset-react": "^7.7.4",
+    "@babel/preset-typescript": "^7.7.4",
     "@testing-library/jest-dom": "4.2.4",
     "@testing-library/react": "9.3.2",
     "@testing-library/react-hooks": "3.2.1",
@@ -51,5 +59,13 @@
   },
   "files": [
     "dist/**/*"
-  ]
+  ],
+  "bugs": {
+    "url": "https://github.com/maapteh/react-no-ssr/issues"
+  },
+  "homepage": "https://github.com/maapteh/react-no-ssr#readme",
+  "keywords": [
+    "react"
+  ],
+  "author": "MPTH"
 }
