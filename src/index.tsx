@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import * as React from 'react';
 
 const DefaultOnSSR = () => <span />;
 
@@ -8,9 +8,9 @@ interface Props {
 }
 
 const NoSSR = ({ children, onSSR = <DefaultOnSSR /> }: Props) => {
-    const [render, setRender] = useState(false);
+    const [render, setRender] = React.useState(false);
 
-    useEffect(() => setRender(true), []);
+    React.useEffect(() => setRender(true), []);
 
     if (!render) {
         return onSSR;
