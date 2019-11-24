@@ -2,16 +2,16 @@ import * as React from 'react';
 
 interface Props {
     children: any; // React.ReactNode
-    onSSR?: any; // JSX.Element
+    fallback?: any; // JSX.Element
 }
 
-const NoSSR = ({ children, onSSR = null }: Props) => {
+const NoSSR = ({ children, fallback = null }: Props) => {
     const [render, setRender] = React.useState(false);
 
     React.useEffect(() => setRender(true), []);
 
     if (!render) {
-        return onSSR;
+        return fallback;
     }
 
     return children;

@@ -42,7 +42,7 @@ const Loading = () => (<div>Loading...</div>);
 const Page = () => (
   <>
     ....
-    <NoSSR onSSR={<Loading />}>
+    <NoSSR fallback={<Loading />}>
       <Foo />
     </NoSSR>
   </>
