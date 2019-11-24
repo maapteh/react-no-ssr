@@ -65,7 +65,10 @@
   },
   "homepage": "https://github.com/maapteh/react-no-ssr#readme",
   "keywords": [
-    "react"
+    "react",
+    "component",
+    "SSR",
+    "react-no-ssr"
   ],
   "author": "MPTH"
 }
