@@ -6,11 +6,11 @@ interface Props {
 }
 
 const NoSSR = ({ children, fallback = null }: Props) => {
-    const [render, setRender] = React.useState(false);
+    const [mounted, setMounted] = React.useState(false);
 
-    React.useEffect(() => setRender(true), []);
+    React.useEffect(() => setMounted(true), []);
 
-    if (!render) {
+    if (!mounted) {
         return fallback;
     }
 
