@@ -28,7 +28,7 @@ describe('NoSSR Component', () => {
         const Loading = () => <div>Loading...</div>;
 
         it('should render correctly with custom loading', () => {
-            const markup = ReactDOMServer.renderToStaticMarkup(<NoSSR onSSR={<Loading />}>
+            const markup = ReactDOMServer.renderToStaticMarkup(<NoSSR fallback={<Loading />}>
                 <MyComp />
             </NoSSR>);
             expect(markup).toBe('<div>Loading...</div>')
