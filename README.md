@@ -50,3 +50,6 @@ const Page = () => (
 ```
 
 Now `<Loading />` component will be rendered until `<Foo />` component is rendered to the DOM.
+
+[![Codecov Coverage](https://img.shields.io/codecov/c/github/maapteh/react-no-ssr/master.svg?style=flat-square)](https://codecov.io/gh/maapteh/react-no-ssr/)
+
