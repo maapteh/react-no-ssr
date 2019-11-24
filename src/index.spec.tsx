@@ -1,10 +1,11 @@
 import React from 'react';
+import ReactDOMServer from "react-dom/server";
 import { render, cleanup } from '@testing-library/react';
 import NoSSR from './';
 
-// not good tests for ssr state...
 describe('NoSSR Component', () => {
-    describe('without loading state', () => {
+
+    describe('on Client Side', () => {
         afterEach(() => {
             cleanup();
         });
@@ -14,35 +15,30 @@ describe('NoSSR Component', () => {
                 <MyComp />
             </NoSSR>
         );
-        const { queryAllByText } = render(wrapper);
+        const { queryByText } = render(wrapper);
 
-        it('should render correctly', () => {
-            // TODO: add ssr state of default empty span
-            expect(queryAllByText(/Hello/)).toBeDefined();
+        it('should render correctly its inner component', () => {
+            queryByText(/Hello/);
         });
     });
 
-    describe('with loading state', () => {
-        afterEach(() => {
-            cleanup();
-        });
+    describe('on Server Side', () => {
+
         const MyComp = () => <div>Hello</div>;
         const Loading = () => <div>Loading...</div>;
-        const wrapper = (
-            <NoSSR onSSR={<Loading />}>
+
+        it('should render correctly with custom loading', () => {
+            const markup = ReactDOMServer.renderToStaticMarkup(<NoSSR onSSR={<Loading />}>
                 <MyComp />
-            </NoSSR>
-        );
-        const { queryByText, unmount, rerender } = render(wrapper);
+            </NoSSR>);
+            expect(markup).toBe('<div>Loading...</div>')
+        });
 
-        it('Should render correctly', () => {
-            unmount();
-            expect(queryByText(/Hello/)).toBeNull();
-            expect(queryByText(/Loading/)).toBeDefined();
-
-            rerender(wrapper);
-            expect(queryByText(/Hello/)).toBeDefined();
-            expect(queryByText(/Loading/)).toBeNull();
+        it('should render correctly with no custom loading', () => {
+            const markup = ReactDOMServer.renderToStaticMarkup(<NoSSR>
+                <MyComp />
+            </NoSSR>);
+            expect(markup).toBe('')
         });
     });
 });
