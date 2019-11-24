@@ -4,7 +4,7 @@ module.exports = {
     },
     testRegex: '(/src.*(\\.|/)(test|spec))\\.(tsx?|ts?)$',
     moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx', 'json', 'node'],
-    modulePathIgnorePatterns: ['.next'],
+    modulePathIgnorePatterns: ['dist'],
     collectCoverage: true,
     coverageReporters: ['json', 'lcov', 'text', 'text-summary'],
     setupFilesAfterEnv: ['@testing-library/jest-dom/extend-expect'],
