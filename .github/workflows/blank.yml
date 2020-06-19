@@ -14,9 +14,6 @@ jobs:
       with:
         node-version: '10'
 
-    - name: Install Dependencies
-      run: yarn
-
     - name: Get yarn cache directory path
       id: yarn-path
       run: echo "::set-output name=dir::$(yarn cache dir)"
@@ -32,6 +29,9 @@ jobs:
           ${{ runner.os }}-build-${{ env.cache-name }}-
           ${{ runner.os }}-build-
           ${{ runner.os }}-
+
+    - name: Install Dependencies
+      run: yarn
 
     - name: Lint, test and build
       run: |
