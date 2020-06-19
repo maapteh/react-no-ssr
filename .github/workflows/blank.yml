@@ -8,7 +8,10 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v1
+
+    - name: Checkout
+    - uses: actions/checkout@v2
+
     - name: Setup Node
       uses: actions/setup-node@v1
       with:
@@ -21,10 +24,10 @@ jobs:
     - name: Cache yarn modules
       uses: actions/cache@v2
       env:
-        cache-name: cache-node-modules
+        cache-name: cache
       with:
         path: ${{ steps.yarn-path.outputs.dir }}
-        key: ${{ runner.os }}-build-${{ hashFiles('yarn.lock') }}
+        key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('yarn.lock') }}
         restore-keys: |
           ${{ runner.os }}-build-${{ env.cache-name }}-
           ${{ runner.os }}-build-
