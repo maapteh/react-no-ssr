@@ -15,8 +15,28 @@ jobs:
           node-version: 12
           registry-url: https://registry.npmjs.org/
           scope: '@mpth'
-      - run: yarn
-      - run: |
+
+      - name: Get yarn cache directory path
+        id: yarn-path
+        run: echo "::set-output name=dir::$(yarn cache dir)"
+
+      - name: Cache yarn modules
+        uses: actions/cache@v2
+        env:
+          cache-name: cache-node-modules
+        with:
+          path: ${{ steps.yarn-path.outputs.dir }}
+          key: ${{ runner.os }}-build-${{ hashFiles('yarn.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-build-${{ env.cache-name }}-
+            ${{ runner.os }}-build-
+            ${{ runner.os }}-
+    
+      - name: Install dependencies
+        run: yarn
+      
+      - name: Test and publish
+        run: |
           yarn test
           npm publish
         env:
