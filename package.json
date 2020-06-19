@@ -24,7 +24,7 @@
   "dependencies": {},
   "devDependencies": {
     "@testing-library/jest-dom": "5.0.2",
-    "@testing-library/react": "9.4.1",
+    "@testing-library/react": "10.3.0",
     "@testing-library/react-hooks": "3.2.1",
     "@types/jest": "24.9.1",
     "@typescript-eslint/parser": "2.21.0",
